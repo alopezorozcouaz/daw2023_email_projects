@@ -10,7 +10,7 @@ import javax.sql.DataSource;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 /**
- *
+ * Crea un Pool de Conexiones
  * @author alopezorozco
  */
 public class ConnectionPool {

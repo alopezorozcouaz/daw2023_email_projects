@@ -7,7 +7,8 @@ package murach.data;
 
 import java.sql.*;
 /**
- *
+ * Esta clase cierra los objetos Statement, PreparedStatement
+ * y ResulSet para liberar recursos
  * @author alopezorozco
  */
 public class DBUtil {

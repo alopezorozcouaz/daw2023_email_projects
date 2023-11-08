@@ -10,5 +10,5 @@ package murach.data;
  * @author alopezorozco
  */
 public class Error {
-    public static String descripcion;    
+    public static String descripcion;   // almacena el mensaje de error, si este ocurre
 }

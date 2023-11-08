@@ -8,10 +8,16 @@ package murach.data;
 import murach.business.User;
 import java.sql.*;
 /**
- *
+ * Permite realizar las operaciones CRUD en la entidad
+ * user de la base de datos murach
  * @author alopezorozco
  */
 public class UserDB {
+    /**
+     * Inserta un nuevo usuario en la bd
+     * @param user
+     * @return 
+     */
     public static int insert(User user) {
         // Obtiene una instancia del ConnectionPool para gestionar las conexiones a la base de datos
         ConnectionPool pool = ConnectionPool.getInstance();

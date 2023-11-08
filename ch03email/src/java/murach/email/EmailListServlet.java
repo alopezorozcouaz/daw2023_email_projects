@@ -5,7 +5,6 @@ package murach.email;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -31,52 +30,49 @@ public class EmailListServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String url = "/index.html";
-        
+
         //get current action
         String action = request.getParameter("action");
-        if (action == null){
-            action = "join"; //default action
-        }
-        
+
         // perform action and set URL to appropiate page
-        if (action.equals("join")){
+        if (action.equals("join")) {
             url = "/index.html";
-        }else if (action.equals("add")){
+        } else if (action.equals("add")) {
             //getParameters from the request
             request.setCharacterEncoding("UTF-8");
             String firstName = request.getParameter("firstName");
             String lastName = request.getParameter("lastName");
             String email = request.getParameter("email");
-            
+
             // store data in User object and save User Object in database
             User user = new User(firstName, lastName, email);
             int result = UserDB.insert(user);
-            
+
             //si resultado es mayor que 0 entonces se realizó con éxito la operación
-            if (result>0){
+            if (result > 0) {
                 request.setAttribute("mensaje", "El usuario fue dado de alta en la bd");
                 request.setAttribute("user", user);
                 url = "/thanks.jsp"; // the "thanks" page
-            }else{
+            } else {
                 request.setAttribute("mensaje", "Hubo un problema al querer guardar la información en la base de datos");
                 request.setAttribute("error", murach.data.Error.descripcion);
                 url = "/error.jsp";
             }
         }
-        
+
         //forward request and response objects to specified URL
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);
     }
-    
+
     @Override
-    protected void doGet(HttpServletRequest request, 
-                          HttpServletResponse response) 
-                          throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request,
+            HttpServletResponse response)
+            throws ServletException, IOException {
         doPost(request, response);
-    }   
+    }
 
 }

@@ -17,7 +17,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     </head>
     <body>
-        <div class='container'>
+        <div class='container mt-5'>
             <div class='row'>
                 <div class='col'>
                     <h1>Thanks for joining our email list</h1>                    
@@ -29,7 +29,7 @@
             <div class='row'>
                 <div class='col'>
                     <p>Here is the information that you entered:</p>
-
+                    <hr>
                     <label>Email:</label>
                     <span>${user.email}</span><br>
                     <label>Fist Name:</label>
